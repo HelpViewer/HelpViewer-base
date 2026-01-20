@@ -15,6 +15,10 @@
   --c-usernoteBackground: rgba(0,0,0,0.05);
 }
 
+.toolbar {
+  background: var(--c-border);
+}
+
 .btn-select {
   position: relative;
   display: inline-block;
@@ -469,6 +473,10 @@ ul:has(li input[type="checkbox"]) {
 
 /*S: print support*/
 @media print {
+  .toolbar {
+    display: none !important;
+  }
+  
   .inSepia {
     filter: sepia(0);
   }

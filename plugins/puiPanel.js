@@ -1,5 +1,5 @@
 class puiPanel extends IPlugin {
-  static addition = '<div class="header" id="%%-panel"><div id="%%-toolbar"></div></div>';
+  static addition = '<div class="header" id="%%-panel"><div id="%%-toolbar" class="toolbar"></div></div>';
 
   constructor(aliasName, data) {
     super(aliasName, data);
