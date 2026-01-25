@@ -40,9 +40,14 @@ class puiButtonSelect extends IPlugin {
     TI.eventDefinitions.push([T.EVT_BUSE_SET, ButtonSelectIconSet, h_EVT_BUSE_SET]);
     h_EVT_BUSE_SET(undefined);
 
+    const label = document.createElement('label');
+    label.className = C_SCREENREADERONLY;
+    label.textContent = '';
+    label.id = `${TI.cfgID}-lab`;
     const select = document.createElement('select');
     TI.select = select;
     select.id = `${TI.cfgID}-sel`;
+    label.htmlFor = select.id;
     main.append(select);
 
     TI.catalogizeEventCall(TI.init, EventNames.ButtonSend);
@@ -51,6 +56,7 @@ class puiButtonSelect extends IPlugin {
       x.id = TI.cfgTARGET;
     });
 
+    select.parentNode.insertBefore(label, select);
     TI.targetSysObject = SystemEventHandler.getTargetFromName(`#${TI.cfgID}-sel`);
 
     TI.eventOnChange = new SystemEventHandler('', undefined, TI.targetSysObject, 'change', TI._handle.bind(TI));
