@@ -31,6 +31,10 @@
   background: var(--c-border);
 }
 
+.code-toolbar .toolbar {
+  background: unset;
+}
+
 .btn-select {
   position: relative;
   display: inline-block;
