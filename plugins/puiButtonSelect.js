@@ -57,12 +57,12 @@ class puiButtonSelect extends IPlugin {
     });
 
     select.parentNode.insertBefore(label, select);
-    TI.targetSysObject = SystemEventHandler.getTargetFromName(`#${TI.cfgID}-sel`);
+    const targetSysObject = SystemEventHandler.getTargetFromName(`#${TI.cfgID}-sel`);
 
-    TI.eventOnChange = new SystemEventHandler('', undefined, TI.targetSysObject, 'change', TI._handle.bind(TI));
+    TI.eventOnChange = new SystemEventHandler('', undefined, targetSysObject, 'change', TI._handle.bind(TI));
     TI.eventOnChange.init();
 
-    TI.eventOnFocus = new SystemEventHandler('', undefined, TI.targetSysObject, 'focus', TI._handleFocus.bind(TI));
+    TI.eventOnFocus = new SystemEventHandler('', undefined, targetSysObject, 'focus', TI._handleFocus.bind(TI));
     TI.eventOnFocus.init();
     super.init();
   }
