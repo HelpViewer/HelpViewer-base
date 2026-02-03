@@ -187,18 +187,21 @@ class puiButton extends IPlugin {
       return;
 
     const b = this.button;
-    const reply = new ButtonDumpOne();
-    reply.buttonId = b.id;
-    reply.caption = b.innerText;
-    reply.title = b.title;
-    reply.aria = b.getAttribute('aria-label') || '';
-    reply.handler = undefined;
+    const reply = collectButtonDump(b);
     reply.id = this.aliasName;
     evt.result = reply;
     evt.collected.push(reply);
-
-    return evt.collected;
   }
+}
+
+function collectButtonDump(b) {
+  const reply = new ButtonDumpOne();
+  reply.buttonId = b.id;
+  reply.caption = b.innerText;
+  reply.title = b.title;
+  reply.aria = b.getAttribute('aria-label') || '';
+  reply.handler = undefined;
+  return reply;
 }
 
 class ClickedEventNotForwarded extends ClickedEvent {
