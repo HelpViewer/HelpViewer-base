@@ -127,7 +127,27 @@ function registerOnClick(handlerId, handler) {
   });
 }
 
+class ButtonDumpOne {
+  constructor() {
+    this.buttonId = '';
+    this.caption = '';
+    this.title = '';
+    this.aria = '';
+    this.handler = '';
+    this.id = '';
+  }
+}
+
+class ButtonDumpEvent extends IEvent {
+  constructor() {
+    super();
+    this.collected = [];
+  }
+}
+
 class puiButton extends IPlugin {
+  static EVT_BUTTON_DUMP = 'ButtonDump';
+
   constructor(aliasName, data) {
     super(aliasName, data);
     this.button = undefined;
@@ -147,6 +167,8 @@ class puiButton extends IPlugin {
     TI.catalogizeEventCall(TI.init, EventNames.ButtonCreate);
     TI.catalogizeEventCall(TI.init, EventNames.ButtonSend);
 
+    TI.eventDefinitions.push([T.EVT_BUTTON_DUMP, ButtonDumpEvent, null]); // outside event handlers
+
     super.init();
   }
 
@@ -158,6 +180,24 @@ class puiButton extends IPlugin {
 
   _buttonAction(evt) {
     log('W puiButton._buttonAction must be overriden in ' + this.constructor.name);
+  }
+
+  onET_ButtonDump(evt) {
+    if (!this.button)
+      return;
+
+    const b = this.button;
+    const reply = new ButtonDumpOne();
+    reply.buttonId = b.id;
+    reply.caption = b.innerText;
+    reply.title = b.title;
+    reply.aria = b.getAttribute('aria-label') || '';
+    reply.handler = undefined;
+    reply.id = this.aliasName;
+    evt.result = reply;
+    evt.collected.push(reply);
+
+    return evt.collected;
   }
 }
 
