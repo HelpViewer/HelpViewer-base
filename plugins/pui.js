@@ -141,7 +141,7 @@ class ButtonDumpOne {
 class ButtonDumpEvent extends IEvent {
   constructor() {
     super();
-    this.collected = [];
+    this.collected = new Map();
   }
 }
 
@@ -188,9 +188,14 @@ class puiButton extends IPlugin {
 
     const b = this.button;
     const reply = collectButtonDump(b);
+
+    if (evt.collected.has(reply.buttonId))
+      return;
+
+    evt.collected.set(reply.buttonId, reply);
+
     reply.id = this.aliasName;
     evt.result = reply;
-    evt.collected.push(reply);
     return reply;
   }
 }
