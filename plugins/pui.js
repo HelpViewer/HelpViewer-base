@@ -133,7 +133,7 @@ class ButtonDumpOne {
     this.caption = '';
     this.title = '';
     this.aria = '';
-    this.handler = '';
+    this.handlerB = '';
     this.id = '';
   }
 }
@@ -191,6 +191,7 @@ class puiButton extends IPlugin {
     reply.id = this.aliasName;
     evt.result = reply;
     evt.collected.push(reply);
+    return reply;
   }
 }
 
@@ -200,7 +201,7 @@ function collectButtonDump(b) {
   reply.caption = b.innerText;
   reply.title = b.title;
   reply.aria = b.getAttribute('aria-label') || '';
-  reply.handler = undefined;
+  reply.handlerB = undefined;
   return reply;
 }
 
