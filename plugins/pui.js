@@ -138,7 +138,7 @@ class ButtonDumpOne {
   }
 }
 
-class ButtonDumpEvent extends IEvent {
+class OfflineDump extends IEvent {
   constructor() {
     super();
     this.collected = new Map();
@@ -146,7 +146,7 @@ class ButtonDumpEvent extends IEvent {
 }
 
 class puiButton extends IPlugin {
-  static EVT_BUTTON_DUMP = 'ButtonDump';
+  static EVT_BUTTON_DUMP = 'OfflineDump';
 
   constructor(aliasName, data) {
     super(aliasName, data);
@@ -167,7 +167,7 @@ class puiButton extends IPlugin {
     TI.catalogizeEventCall(TI.init, EventNames.ButtonCreate);
     TI.catalogizeEventCall(TI.init, EventNames.ButtonSend);
 
-    TI.eventDefinitions.push([T.EVT_BUTTON_DUMP, ButtonDumpEvent, null]); // outside event handlers
+    TI.eventDefinitions.push([T.EVT_BUTTON_DUMP, OfflineDump, null]); // outside event handlers
 
     super.init();
   }
@@ -182,7 +182,7 @@ class puiButton extends IPlugin {
     log('W puiButton._buttonAction must be overriden in ' + this.constructor.name);
   }
 
-  onET_ButtonDump(evt) {
+  onET_OfflineDump(evt) {
     if (!this.button)
       return;
 
