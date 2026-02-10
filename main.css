@@ -15,6 +15,14 @@
   --c-usernoteBackground: rgba(0,0,0,0.05);
 }
 
+details summary span, li[role="treeitem"] span {
+  color: var(--c-anchorColor);
+}
+
+details summary span:hover, li[role="treeitem"] span:hover {
+  color: var(--c-anchorHover);
+}
+
 .sronly {
   position: absolute;
   width: 1px;
