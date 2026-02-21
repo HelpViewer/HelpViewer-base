@@ -54,6 +54,8 @@ class pGets extends IPlugin {
 
       // var val = this.params[data.name];
       var val = urlParams.get(data.name);
+      val = (window.DOMPurify) ? DOMPurify.sanitize(val) : val;
+      val = val.replace(/<[^>]*>/g, '');
 
       if (data.conversionHandler && typeof data.conversionHandler === 'function')
         val = data.conversionHandler(val);
