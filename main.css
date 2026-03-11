@@ -501,6 +501,7 @@ ul:has(li input[type="checkbox"]) {
 @media print {
   :root {
     --c-p: black;
+    --c-wordFound-F: var(--c-p);
   }
 
   .toolbar {
@@ -514,7 +515,6 @@ ul:has(li input[type="checkbox"]) {
   body * {
     visibility: hidden;
     color: var(--c-p) !important;
-    --c-wordFound-F: var(--c-p);
   }
 
   .main, .main * {
