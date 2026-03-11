@@ -499,6 +499,10 @@ ul:has(li input[type="checkbox"]) {
 
 /*S: print support*/
 @media print {
+  :root {
+    --c-p: black;
+  }
+
   .toolbar {
     display: none !important;
   }
@@ -509,8 +513,8 @@ ul:has(li input[type="checkbox"]) {
 
   body * {
     visibility: hidden;
-    color: black !important;
-    --c-wordFound-F: black;
+    color: var(--c-p) !important;
+    --c-wordFound-F: var(--c-p);
   }
 
   .main, .main * {
@@ -525,7 +529,7 @@ ul:has(li input[type="checkbox"]) {
   }
 
   a {
-    color: black;
+    color: var(--c-p);
   }
   
   .header {
