@@ -68,7 +68,7 @@ function SetHeaderText(txt) {
   if (!txt)
     txt = '';
   const reply = setHeader(txt);
-  document.title = txt.replace(/<[^>]+>/g, '');
+  document.title = toFilteredUTFText(txt.replace(/<[^>]+>/g, ''));
   return reply;
 }
 
