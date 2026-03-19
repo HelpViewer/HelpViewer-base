@@ -699,7 +699,14 @@ class puiButtonObjectExplorer extends puiButtonTabTree {
         break;
 
       case ObjectExplorerObjectDescriptor.VARIABLE.abbr:
-        desc = `\`\`\`\n${globalThis[objNameLocal]}\n\`\`\`\n\n`;
+        let value = `${globalThis[objNameLocal]}`.trim();
+        let objectTest = value.startsWith('[object');
+        try {
+          value = objectTest ? JSON.stringify(globalThis[objNameLocal]) : value;
+        } catch (e) {
+          value = `Value gathering failed: ${e.message}`;
+        }
+        desc = `\`\`\`${objectTest ? 'json' : ''}\n${value}\n\`\`\`\n\n`;
         break;
   
       default:
