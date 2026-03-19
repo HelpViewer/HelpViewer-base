@@ -29,7 +29,7 @@ class puiHeader extends puiPanel {
       if (typeof data.payload === 'function') {
         data.payload(mainTitle);
       } else {
-        mainTitle.innerHTML = data.payload;
+        mainTitle.innerHTML = toFilteredUTFText(data.payload);
       }
       data.result = true;
     }
