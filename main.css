@@ -184,7 +184,7 @@ h1 {
   cursor: pointer;
 }
 
-.wordFound {
+.wordFound, mark {
   background-color: var(--c-wordFound);
   color: var(--c-wordFound-F);
 }
