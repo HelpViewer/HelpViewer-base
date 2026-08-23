@@ -558,3 +558,7 @@ ul:has(li input[type="checkbox"]) {
   }
 }
 /*E: print support*/
+
+img {
+max-width: stretch;
+}
