@@ -11,7 +11,7 @@
   --c-anchorColor: #767676;
   --c-contentPaneColor: white;
   --c-wordFound: yellow;
-  --font: sans-serif;
+  --font: system-ui, -apple-system, sans-serif;
   --c-usernoteBackground: rgba(0,0,0,0.05);
 }
 
