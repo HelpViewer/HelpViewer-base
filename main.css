@@ -250,7 +250,6 @@ ul.tree details[open] > summary::before {
     border-right: none;
     border-bottom: 1px solid var(--c-border);
     min-height: 60px;
-    display: block;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -281,13 +280,13 @@ ul.tree details[open] > summary::before {
 .content h1 {
     padding-bottom: .3em;
     font-size: 2em;
-    border-bottom: 1px solid var(--c-border, var(--c-border));
+    border-bottom: 1px solid var(--c-border);
 }
 
 .content h2 {
     padding-bottom: .3em;
     font-size: 1.5em;
-    border-bottom: 1px solid var(--c-border, var(--c-border));
+    border-bottom: 1px solid var(--c-border);
 }
 
 .content li {
