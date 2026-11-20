@@ -13,6 +13,12 @@
   --c-wordFound: yellow;
   --font: system-ui, -apple-system, sans-serif;
   --c-usernoteBackground: rgba(0,0,0,0.05);
+  --n-line-height: 1.6;
+  --n-font-size: 16px;
+}
+
+p {
+  line-height: var(--n-line-height);
 }
 
 summary {
@@ -115,6 +121,7 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: var(--font);
+  font-size: var(--n-font-size);
 }
 
 h1 {
